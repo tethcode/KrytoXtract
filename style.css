@@ -1,0 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap");
+#intro_head {
+    font-family: Plus Jakarta Sans;
+}
+.nav-item {
+    
+    font-size: 14px;
+}
+.nav-link:active {
+    color: gold;
+}
+header {
+    border: 1px solid gold;
+}
+body {
+    font-family: Plus Jakarta Sans;
+    margin: 0;
+    padding: 0;
+}
+.input-with-icon {
+    background-image: url('your-mail-icon.png'); /* Replace with your actual icon URL */
+    background-position: 10px center; /* Adjust as needed */
+    background-repeat: no-repeat;
+    background-size: 16px; /* Adjust icon size */
+    padding-left: 35px; /* Ensure text doesn’t overlap icon */
+}
