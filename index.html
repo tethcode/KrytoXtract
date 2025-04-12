@@ -1,265 +1,285 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KryptoXtract</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="img/logo.png" type="image/png">
-    <style>
-        @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap");
-#intro_head {
-    font-family: Plus Jakarta Sans;
-}
-.nav-item {
-    
-    font-size: 14px;
-}
-.nav-link:active {
-    color: gold;
-}
-header {
-    border: 1px solid gold;
-}
-body {
-    font-family: Plus Jakarta Sans;
-    margin: 0;
-    padding: 0;
-}
-.input-with-icon {
-    background-image: url('your-mail-icon.png'); /* Replace with your actual icon URL */
-    background-position: 10px center; /* Adjust as needed */
-    background-repeat: no-repeat;
-    background-size: 16px; /* Adjust icon size */
-    padding-left: 35px; /* Ensure text doesn’t overlap icon */
-}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KryptoXtract</title>
+  <!-- External CSS Libraries -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <link rel="stylesheet" href="bootstrap.min.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="shortcut icon" href="img/logo.png" type="image/png" />
+  <script src="https://cdn.tailwindcss.com"></script>
 
-    </style>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap");
+    
+    /* Custom Fonts & Base Styles */
+    #intro_head {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .nav-item {
+      font-size: 14px;
+    }
+    .nav-link:active {
+      color: gold;
+    }
+    header {
+      border: 1px solid gold;
+    }
+    .input-with-icon {
+      background-image: url('your-mail-icon.png'); /* Replace with your actual icon URL */
+      background-position: 10px center;
+      background-repeat: no-repeat;
+      background-size: 16px;
+      padding-left: 35px;
+    }
+    /* Existing mobile fix for dropdown visibility */
+    .dropdown-content {
+      display: none;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .dropdown-content.show {
+      display: block;
+      opacity: 1;
+    }
+    .dropdown:hover .dropdown-content {
+      display: block;
+      opacity: 1;
+    }
+    @media (min-width: 769px) {
+      #scrapper {
+        height: 120px;
+        width: 200px;
+      }
+    }
+    /* Responsive Tweaks */
+    @media (max-width: 768px) {
+      /* Hide desktop navigation items */
+      body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+      }
+      .head-content {
+        display: none !important;
+      }
+      #subscribe_btn {
+        width: 80%;
+      }
+      
+      /* Show and style dropdown for mobile */
+      .dropdown {
+        display: inline-block !important;
+        width: 100%;
+        text-align: right;
+        padding: 10px;
+      }
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        width: 100%;
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+        padding: 1rem;
+        z-index: 1;
+        text-align: left;
+      }
+    }
+
+  </style>
 </head>
-<body class="container-fuild">
-    <header class="bg-black">
-        <nav class="">
-            <ul class="nav justify-content-end" style="position: relative; top: 10px; left: -50px">
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="index.html">HOME</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="about.html">EDUCATION</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="contact.html">EVENTS</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="contact.html">INTERVIEWS</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="contact.html">MARKET ANALYSIS</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="contact.html">PRESS RELEASE</a>
-                </li>
-            </ul>
-            <img src="img/logo.png" alt="KryptoXtract" class="img-fluid" style="position: relative; top: -19px; left: 52px; width: 25px; height: 25px;">
-        </nav>
-    </header>
-    <div class="bg-black text-white p-5">
-        <h2 class="justify-content-center flex mt-5" id="intro_head">We deliver the best blockchain related updates.</h2>
-        <div class="flex justify-center items-center mt-5">
-            <button class="p-2 bg-white text-gray-500 rounded-l-lg" style="border: transparent;"><i class="fas fa-search" style="font-weight: bold; font-size: 23px;"></i></button>
-            <input align="center" type="search" class="w-50 border rounded-r-lg p-2 text-black" placeholder="Search">
+<body class="">
+  <!-- Navigation -->
+  <header class="bg-black">
+    <nav class="p-4">
+        <div class="container mx-auto flex items-center justify-between">
+    
+          <!-- Logo -->
+          <img src="img/logo.png" alt="KryptoXtract" class="w-8 h-8" />
+    
+          <!-- Desktop Navigation -->
+          <ul class="hidden md:flex space-x-6">
+            <li><a href="index.html" class="nav-link text-white">HOME</a></li>
+            <li><a href="about.html" class="nav-link text-white">EDUCATION</a></li>
+            <li><a href="contact.html" class="nav-link text-white">EVENTS</a></li>
+            <li><a href="contact.html" class="nav-link text-white">INTERVIEWS</a></li>
+            <li><a href="contact.html" class="nav-link text-white">MARKET ANALYSIS</a></li>
+            <li><a href="contact.html" class="nav-link text-white">PRESS RELEASE</a></li>
+          </ul>
+    
+          <!-- Mobile Dropdown -->
+          <div class="dropdown relative md:hidden">
+            <button class="bg-black text-white p-2 rounded-md" onclick="toggleDropdown()">Menu</button>
+            <div id="dropdownMenu" class="dropdown-content absolute hidden bg-black text-white w-40 mt-2 rounded-lg shadow-md">
+              <a href="index.html" class="block px-4 py-2">HOME</a>
+              <a href="about.html" class="block px-4 py-2">EDUCATION</a>
+              <a href="contact.html" class="block px-4 py-2">EVENTS</a>
+              <a href="contact.html" class="block px-4 py-2">INTERVIEWS</a>
+              <a href="contact.html" class="block px-4 py-2">MARKET ANALYSIS</a>
+              <a href="contact.html" class="block px-4 py-2">PRESS RELEASE</a>
+            </div>
+          </div>
+    
         </div>
-        <div class="flex space-x-10 justify-center mt-5 container">
-            <div class="w-1/4 relative">
-                <img src="https://s3-alpha-sig.figma.com/img/8b41/2f3c/2091ab12a8a8feb1a4fe5d2e8460cc0a?Expires=1744588800&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=FTcjNezr25hplIFInLC2k6PoC41XtcV9d9idL7unZu1ckEenZI352xhmEvIRMaSR0tW9Zw5s9uS7DxSKdz1Bu28pYFHZ46gNrH8wIMzV1F6Q1xpzNJdC8dMVzMhD~qXyz4t2dOekAtS1U~4UmJNamG2Pde0Sy0ewYGedQmvZ1-htIdqf5EY5C~gHskSOAo3PovHS4O9lTVKkH429jXkl~VJgXCA-NzLcHnoOh9fQfYhCFmJlGq8dsjoVzVmgfG8~6YlXyoLP~zliYSl4ACx4dGn7BgNe6z0JSftN~5I-0Rbev5ihE73IcCwNw2PoEQ0fvM6IbtlnhOrLE7MSU7gsjg__" 
-                    alt="KryptoXtract" class="rounded-sm">
-                <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white p-2" style="font-size: 12px;">
-                    <span class="bg-yellow-500 p-1">Business</span>
-                    <p class="mt-2">Bitcoin tops chart with $18,000</p>
-                </div>
-            </div>
-            <div class="w-1/4 relative">
-                <img src="https://s3-alpha-sig.figma.com/img/837f/09d5/af600166bc6af63b313876449e72d247?Expires=1744588800&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=BVp0ozjNXIWWwvko7jjnXh4svx5gtI9xT4xB6DDKl~wXZyJ3XT7XoIutTI5uZvuG8S7W8574dyP9j~5VMfPXtC9~SMeiBE1~9h5oeZbUTVoGEWMv3Svj6FUC1XTHiBwjk6cNSIG7m8oKrGsYCZJi8YFt2RvBg072Xe7TtcXLXQ4KJafyndvmAdLmjQJe236BGJCDjgKz6GEI9dlPUUUBW9VWG-ma5SxotIC0jnujszfzG44~F6IjUTbW-0Ms~mywzcP3o1DhOQQTYLvU~Bc96oVodkCLR3ec17hSUVvWmP3Q2UVu-zALge-xCYW8d1tnwM52BlwuiFBLLyFPz6a4Vw__" 
-                    alt="KryptoXtract" class="rounded-sm object-cover w-full h-full">
-                <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white p-2" style="font-size: 12px;">
-                    <span class="bg-yellow-500 p-1">Business</span>
-                    <p class="mt-2">Bitcoin tops chart with $18,000</p>
-                </div>
-            </div>
-            <div class="w-1/4 relative">
-                <img src="https://s3-alpha-sig.figma.com/img/56a8/1b06/79b2218e8be1debbe8debb67efdfa77e?Expires=1744588800&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=q5LYEPJ2dTPhzc5DkaeF3h7lMZngbWQhGsHJXT0mqpTgUYQWYwQydXoa0Dv0KsdqTBK6xHtkjR-zgdXMCLqI-5BM~bRv8CZdYhrTChORjAAdsGKMR5KEVID~IW-EtrOKZvUMYMY6bLjDDtYa2ppUlPYHxRVAo-8xjnUANcj9LUk81znwHaqkZuNb0oUSe3utrxRgl~yhvOnHmkGySG-PeViNOfwftg8gPFmf6E9gsReJgZE8mkiZr8ZOb1HOyjESu3HiYc7215HfjocwG2b4rRpv0ySF63VJYSGiGp064tr21UpnzURAhZr~1-eBrVkwv-dtyGU0qHKfskBhibWgfg__" 
-                    alt="KryptoXtract" class="rounded-sm object-cover w-full h-full">
-                <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white p-2" style="font-size: 12px;">
-                    <span class="bg-yellow-500 p-1">Business</span>
-                    <p class="mt-2">Bitcoin tops chart with $18,000</p>
-                </div>
-            </div>
-            <div class="w-1/4 relative">
-                <img src="img/statistics.jpg"
-                    alt="KryptoXtract" class="rounded-sm object-cover w-full h-full">
-                <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white p-2" style="font-size: 12px;">
-                    <span class="bg-yellow-500 p-1">Business</span>
-                    <p class="mt-2">Bitcoin tops chart with $18,000</p>
-                </div>
-            </div>
-            
-        </div>
+      </nav>
+    
+      <!-- TOGGLE SCRIPT -->
+      <script>
+        // Toggle the visibility of the dropdown on mobile
+        function toggleDropdown() {
+          const dropdownMenu = document.getElementById('dropdownMenu');
+          dropdownMenu.classList.toggle('hidden'); // Toggle hidden class
+          dropdownMenu.classList.toggle('show'); // Toggle show class for smooth transition
+        }
+      </script>
+    
+  </header>
+
+  <!-- Intro Section -->
+  <div class="bg-black text-white p-5">
+    <h2 id="intro_head" class="text-2xl md:text-4xl text-center mt-5">
+      We deliver the best blockchain related updates.
+    </h2>
+    <div class="flex justify-center items-center mt-5">
+      <button class="p-2 bg-white text-gray-500 rounded-l-lg border-transparent">
+        <i class="fas fa-search" style="font-weight: bold; font-size: 23px;"></i>
+      </button>
+      <input align="center" type="search" class="w-50 border rounded-r-lg p-2 text-black" placeholder="Search" />
     </div>
-    <div class="bg-white p-5 text-black">
-        <div class="flex items-center">
-            <h2>TRENDING NEWS</h2>
-            <hr class="ml-4 flex-grow border-t-2 border-gray-500">
+    <div class="flex flex-wrap justify-center items-center mt-5 container space-y-4 md:space-y-0 md:space-x-10">
+      <div class="w-full md:w-1/4 relative p-2">
+        <img src="https://s3-alpha-sig.figma.com/img/8b41/2f3c/2091ab12a8a8feb1a4fe5d2e8460cc0a?Expires=1744588800&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=FTcjNezr25hplIFInLC2k6PoC41XtcV9d9idL7unZu1ckEenZI352xhmEvIRMaSR0tW9Zw5s9uS7DxSKdz1Bu28pYFHZ46gNrH8wIMzV1F6Q1xpzNJdC8dMVzMhD~qXyz4t2dOekAtS1U~4UmJNamG2Pde0Sy0ewYGedQmvZ1-htIdqf5EY5C~gHskSOAo3PovHS4O9lTVKkH429jXkl~VJgXCA-NzLcHnoOh9fQfYhCFmJlGq8dsjoVzVmgfG8~6YlXyoLP~zliYSl4ACx4dGn7BgNe6z0JSftN~5I-0Rbev5ihE73IcCwNw2PoEQ0fvM6IbtlnhOrLE7MSU7gsjg__"
+          alt="KryptoXtract" class="rounded-sm object-cover" id="scrapper" />
+        <div class="absolute bottom-0 left-2 right-0 bg-black bg-opacity-50 text-white p-2 text-xs">
+          <span class="bg-yellow-500 p-1">Business</span>
+          <p class="mt-2">Bitcoin tops chart with $18,000</p>
         </div>
-        <div class="flex justify-between space-x-10">
-            <!-- Left Side (News Articles) -->
-            <div class="w-2/3">
-                <div class="border-yellow-100 border-2 rounded-sm p-4 mt-5 flex gap-4">
-                    <img src="https://s3-alpha-sig.figma.com/img/54ea/5318/bf76b123804fd0b8b0b7160de694a9c4?Expires=1744588800&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=mMoTCvSJaulwg2z1SZfKxjOarY-UALFVK6QUWkE9zX-aWtJsT9ksCGShaEGjyddry1YtUlnAY7U35flLt9Ns5Wm6NfwvP2jILeEDBKRFpoS1eA-7M2JNynI91PetTahy2kJoUBjembEuYSTeyElZAWFexkGd8kemaLdg~s3r7X3tvTcaAb7e95N5-6zB~A87o00ThZKLnGFlX8Ea8Ta7F0rx2S8FYx~mFj79RwtX4EcvT0FAIMZWqYdDzgzWnAa99Einr97Yc4NBzopJawDRObfYlZJ0Qf-SN71huKEtzWL1mhrcX7Ya~6~O3I9YcgVE96jZEv1ImoGm~GANvOxxKA__"
-                         alt="Trending News"
-                         class="rounded-sm w-32 h-24 object-cover">
-                    <div>
-                        <span class="text-gray-400">Business</span>
-                        <p>NFT's on the rise as U.S adopts the crypto market this week.</p>
-                    </div>
-                </div>
-        
-                <div class="border-yellow-100 border-2 rounded-sm p-4 mt-3 flex gap-4">
-                    <img src="https://s3-alpha-sig.figma.com/img/54ea/5318/bf76b123804fd0b8b0b7160de694a9c4?Expires=1744588800&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=mMoTCvSJaulwg2z1SZfKxjOarY-UALFVK6QUWkE9zX-aWtJsT9ksCGShaEGjyddry1YtUlnAY7U35flLt9Ns5Wm6NfwvP2jILeEDBKRFpoS1eA-7M2JNynI91PetTahy2kJoUBjembEuYSTeyElZAWFexkGd8kemaLdg~s3r7X3tvTcaAb7e95N5-6zB~A87o00ThZKLnGFlX8Ea8Ta7F0rx2S8FYx~mFj79RwtX4EcvT0FAIMZWqYdDzgzWnAa99Einr97Yc4NBzopJawDRObfYlZJ0Qf-SN71huKEtzWL1mhrcX7Ya~6~O3I9YcgVE96jZEv1ImoGm~GANvOxxKA__"
-                         alt="Trending News"
-                         class="rounded-sm w-32 h-24 object-cover">
-                    <div>
-                        <span class="text-gray-400">Business</span>
-                        <p>NFT's on the rise as U.S adopts the crypto market this week.</p>
-                    </div>
-                </div>
-        
-                <div class="border-yellow-100 border-2 rounded-sm p-4 mt-3 flex gap-4">
-                    <img src="https://s3-alpha-sig.figma.com/img/54ea/5318/bf76b123804fd0b8b0b7160de694a9c4?Expires=1744588800&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=mMoTCvSJaulwg2z1SZfKxjOarY-UALFVK6QUWkE9zX-aWtJsT9ksCGShaEGjyddry1YtUlnAY7U35flLt9Ns5Wm6NfwvP2jILeEDBKRFpoS1eA-7M2JNynI91PetTahy2kJoUBjembEuYSTeyElZAWFexkGd8kemaLdg~s3r7X3tvTcaAb7e95N5-6zB~A87o00ThZKLnGFlX8Ea8Ta7F0rx2S8FYx~mFj79RwtX4EcvT0FAIMZWqYdDzgzWnAa99Einr97Yc4NBzopJawDRObfYlZJ0Qf-SN71huKEtzWL1mhrcX7Ya~6~O3I9YcgVE96jZEv1ImoGm~GANvOxxKA__"
-                         alt="Trending News"
-                         class="rounded-sm w-32 h-24 object-cover">
-                    <div>
-                        <span class="text-gray-400">Business</span>
-                        <p>NFT's on the rise as U.S adopts the crypto market this week.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="w-100 relative mt-5">
-                <img src="https://s3-alpha-sig.figma.com/img/4373/f5ca/c1f4479a1448750f0ac2c6c5a08b03b3?Expires=1744588800&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=s3YUwu9TWP~WsXsakZknOXuVZGm78Djc2VLOdPfZs2qPKZR8Gnuq~0NrHiRQGO4Tv3hWiBhWL80Qi61pxZFjHtVJdKDPCAvDfJEwG3xqO2R-pDmqRqe-KbqrmUgjzOiGzT~i2QUiCvp9cDef32AZLY3rf2qOLcnJt0LVa1Ek-kDNzDoXEuPmsSjW8I5iVDICKZKgMDkvpKgCAvcqWwOayu7vhek4oaM9m4gJxAd5v5fZ1xq56t1E5XVYvIUNJ86HJS-KHkXFwR2xpUlPIGqwTD-6gKV4f6txjP7klGifFdAuN8kXsnAF6ZjLfjLdKMMseELnp4ATMRhSgV9AAIwPEw__"
-                     class="h-80 w-full rounded-sm object-cover">
-                     <div class="absolute left-0 p-3 text-white bg-yellow-600 rounded-tl-sm" style="position: absolute; top: 264px;">
-                        PRESS RELEASE
-                    </div>
-                <h3 class="mt-5">
-                    Artificial Intelligence on the rise
-                </h3>
-                <p>AI as we all know has been trending recently and we couldn’t wait to
-                    talk about this new feature and howi it is going to change the world.
-                    AI as we all know has been trending recently and we couldn’t wait to
-                    talk about this new feature and howi it is going to change the world.
-                    AI as we all know has been trending recently and we couldn’t wait to
-                    talk about this new feature and howi it is going to change the world.
-                    AI as we all know has been trending recently and we couldn’t wait to
-                    talk about this new feature and howi it is going to change the world.</p>
-            </div>
+      </div>
+      <div class="w-full md:w-1/4 relative p-2">
+        <img src="https://s3-alpha-sig.figma.com/img/837f/09d5/af600166bc6af63b313876449e72d247?Expires=1744588800&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=BVp0ozjNXIWWwvko7jjnXh4svx5gtI9xT4xB6DDKl~wXZyJ3XT7XoIutTI5uZvuG8S7W8574dyP9j~5VMfPXtC9~SMeiBE1~9h5oeZbUTVoGEWMv3Svj6FUC1XTHiBwjk6cNSIG7m8oKrGsYCZJi8YFt2RvBg072Xe7TtcXLXQ4KJafyndvmAdLmjQJe236BGJCDjgKz6GEI9dlPUUUBW9VWG-ma5SxotIC0jnujszfzG44~F6IjUTbW-0Ms~mywzcP3o1DhOQQTYLvU~Bc96oVodkCLR3ec17hSUVvWmP3Q2UVu-zALge-xCYW8d1tnwM52BlwuiFBLLyFPz6a4Vw__"
+          alt="KryptoXtract" class="rounded-sm object-cover w-full h-full" />
+        <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white p-2 text-xs">
+          <span class="bg-yellow-500 p-1">Business</span>
+          <p class="mt-2">Bitcoin tops chart with $18,000</p>
         </div>
-        
+      </div>
+      <div class="w-full md:w-1/4 relative p-2">
+        <img src="https://s3-alpha-sig.figma.com/img/56a8/1b06/79b2218e8be1debbe8debb67efdfa77e?Expires=1744588800&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=q5LYEPJ2dTPhzc5DkaeF3h7lMZngbWQhGsHJXT0mqpTgUYQWYwQydXoa0Dv0KsdqTBK6xHtkjR-zgdXMCLqI-5BM~bRv8CZdYhrTChORjAAdsGKMR5KEVID~IW-EtrOKZvUMYMY6bLjDDtYa2ppUlPYHxRVAo-8xjnUANcj9LUk81znwHaqkZuNb0oUSe3utrxRgl~yhvOnHmkGySG-PeViNOfwftg8gPFmf6E9gsReJgZE8mkiZr8ZOb1HOyjESu3HiYc7215HfjocwG2b4rRpv0ySF63VJYSGiGp064tr21UpnzURAhZr~1-eBrVkwv-dtyGU0qHKfskBhibWgfg__"
+          alt="KryptoXtract" class="rounded-sm object-cover w-full h-full" />
+        <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white p-2 text-xs">
+          <span class="bg-yellow-500 p-1">Business</span>
+          <p class="mt-2">Bitcoin tops chart with $18,000</p>
+        </div>
+      </div>
+      <div class="w-full md:w-1/4 relative p-2">
+        <img src="img/statistics.jpg" alt="KryptoXtract" class="rounded-sm object-cover w-full h-full" />
+        <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white p-2 text-xs">
+          <span class="bg-yellow-500 p-1">Business</span>
+          <p class="mt-2">Bitcoin tops chart with $18,000</p>
+        </div>
+      </div>
     </div>
-    <div class="bg-black text-white p-5">
-        <div class="flex items-center">
-            <h2>FEATURED NEWS</h2>
-            <hr class="ml-4 flex-grow border-t-2 border-gray-500">
-        </div>
-        <div class="flex justify-between space-x-10">
-            <div class="w-2/3">
-                <div class="bg-light text-black border-2 rounded-sm p-4 mt-5 flex gap-4">
-                    <img src="https://s3-alpha-sig.figma.com/img/d813/46c5/5f9d865d15871cb6c4028fa3cf991d7f?Expires=1744588800&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=kwExAZcET79NxkNJ8z946DsqQkAAjrhSZ3Fy-3tOFrVhfFSSD6kDtJnanB7CFvF4Gd0Cx7mWmM3lyaSBWYeZ98xQNdrxl9etYD--mtBUwTnQqQaF8AMqrYlncVems2DtnMuud6Fvs3uIGhzgZIJHvyY48cKfjT5l-MoNjln4SbpQrfDgDiZJ6UKANAC2wBpM6fDBmFeHH3BZY92TTWGJ55eRUB-Oj5yIa2GbDQFmBr1L7y1B4CbPRdthzeuHS5ZbgMVXFEj9qYBX6MZtzG4cBG52fTcw9PXDgfJDihsvVPMYYovvApk-DINBDbS0EXjODTj0KpZe8DqWqZdlii~VoQ__"
-                         alt="Trending News"
-                         class="rounded-md w-32 h-24 object-cover">
-                    <div>
-                        <span class="text-gray-400">Business</span>
-                        <p class="mt-2">NFT's on the rise as U.S adopts the crypto market this week.</p>
-                    </div>
-                </div>
-                <div class="bg-light text-black border-2 rounded-sm p-4 mt-4 flex gap-4">
-                    <img src="https://s3-alpha-sig.figma.com/img/851e/bdad/3f0251c57970517522d7f588e19953b6?Expires=1744588800&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=r9v4C9JmrxKjpnhxzxmhGBnEVQfoQMX7smTGmtFoSsjHohZqEHdjwQtsVQi7olvNjIPa6GgSm-ZPQfNrjgFYEVYpScaKudi5WANfbvMsIhjJP6XHFUkRfj~BeQvKxrPha80MzBawD6kiXWF4xlyBBO5CG5Qdm~5hEdhDkKL7~j~iAVh8p80JO4cGcLFDFodvpwvn5TTGT70EE-wnOycMCuorzMa7GGU6ADfpIRGDjMe~4HFxTMVf9UDok8E0kbtprgc~~oSa6KVr8ljBWbMKAsHcorcamw4dhTNUO4fuvrGfWBl6E6nMV4RAxGtscDe14CqlKNRDvarNJjpuNiTTow__"
-                         alt="Trending News"
-                         class="rounded-md w-32 h-24 object-cover">
-                    <div>
-                        <span class="text-gray-400">Business</span>
-                        <p class="mt-2">NFT's on the rise as U.S adopts the crypto market this week.</p>
-                    </div>
-                </div>
-                <div class="bg-light text-black border-2 rounded-sm p-4 mt-4 flex gap-4">
-                    <img src="https://s3-alpha-sig.figma.com/img/54ea/5318/bf76b123804fd0b8b0b7160de694a9c4?Expires=1744588800&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=mMoTCvSJaulwg2z1SZfKxjOarY-UALFVK6QUWkE9zX-aWtJsT9ksCGShaEGjyddry1YtUlnAY7U35flLt9Ns5Wm6NfwvP2jILeEDBKRFpoS1eA-7M2JNynI91PetTahy2kJoUBjembEuYSTeyElZAWFexkGd8kemaLdg~s3r7X3tvTcaAb7e95N5-6zB~A87o00ThZKLnGFlX8Ea8Ta7F0rx2S8FYx~mFj79RwtX4EcvT0FAIMZWqYdDzgzWnAa99Einr97Yc4NBzopJawDRObfYlZJ0Qf-SN71huKEtzWL1mhrcX7Ya~6~O3I9YcgVE96jZEv1ImoGm~GANvOxxKA__"
-                         alt="Trending News"
-                         class="rounded-md w-32 h-24 object-cover">
-                    <div>
-                        <span class="text-gray-400">Business</span>
-                        <p class="mt-2">NFT's on the rise as U.S adopts the crypto market this week.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="w-2/3">
-                <div class="bg-light text-black border-2 rounded-sm p-4 mt-5 flex gap-4">
-                    <img src="https://s3-alpha-sig.figma.com/img/d700/90f1/f2ebb3e307e205be23d2bb25fd5173af?Expires=1744588800&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=bXNQz3pfmMqH4SBJTYP01SykdNYwxzNTSyWslPbefQN3TspCuUxeAV2AgkDsSy6n0D8Xkmd82LiAS3qnM-b5HmhoxA9~YXBo212TP85XJz~EIRSBhUG1yM4pKQ5~gnxChIsNYADiGWAimTUDNiBQN8TthHPQm5u87tXSjVoMbFI5ThR5MlaLZugE6-4pb7KFCscZvfFvuoX9iNucf1nSpGnJZY-jRwmJfB6JXpspngz55k4M~Pxa7pvNUerPJzR5sJrYZ3gYuMXLoLv26tS6IE12Txz1D3ynfdvs5wYsT~NtlHBUTrH-bau7WQgfXSQlowRrNDbKXJu~EDWiHAvzpQ__"
-                         alt="Trending News"
-                         class="rounded-md w-32 h-24 object-cover">
-                    <div>
-                        <span class="text-gray-400">Business</span>
-                        <p class="mt-2">NFT's on the rise as U.S adopts the crypto market this week.</p>
-                    </div>
-                </div>
-                <div class="bg-light text-black border-2 rounded-sm p-4 mt-4 flex gap-4">
-                    <img src="https://s3-alpha-sig.figma.com/img/54ea/5318/bf76b123804fd0b8b0b7160de694a9c4?Expires=1744588800&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=mMoTCvSJaulwg2z1SZfKxjOarY-UALFVK6QUWkE9zX-aWtJsT9ksCGShaEGjyddry1YtUlnAY7U35flLt9Ns5Wm6NfwvP2jILeEDBKRFpoS1eA-7M2JNynI91PetTahy2kJoUBjembEuYSTeyElZAWFexkGd8kemaLdg~s3r7X3tvTcaAb7e95N5-6zB~A87o00ThZKLnGFlX8Ea8Ta7F0rx2S8FYx~mFj79RwtX4EcvT0FAIMZWqYdDzgzWnAa99Einr97Yc4NBzopJawDRObfYlZJ0Qf-SN71huKEtzWL1mhrcX7Ya~6~O3I9YcgVE96jZEv1ImoGm~GANvOxxKA__"
-                         alt="Trending News"
-                         class="rounded-md w-32 h-24 object-cover">
-                    <div>
-                        <span class="text-gray-400">Business</span>
-                        <p class="mt-2">NFT's on the rise as U.S adopts the crypto market this week.</p>
-                    </div>
-                </div>
-                <div class="bg-light text-black border-2 rounded-sm p-4 mt-4 flex gap-4">
-                    <img src="https://s3-alpha-sig.figma.com/img/d700/90f1/f2ebb3e307e205be23d2bb25fd5173af?Expires=1744588800&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=bXNQz3pfmMqH4SBJTYP01SykdNYwxzNTSyWslPbefQN3TspCuUxeAV2AgkDsSy6n0D8Xkmd82LiAS3qnM-b5HmhoxA9~YXBo212TP85XJz~EIRSBhUG1yM4pKQ5~gnxChIsNYADiGWAimTUDNiBQN8TthHPQm5u87tXSjVoMbFI5ThR5MlaLZugE6-4pb7KFCscZvfFvuoX9iNucf1nSpGnJZY-jRwmJfB6JXpspngz55k4M~Pxa7pvNUerPJzR5sJrYZ3gYuMXLoLv26tS6IE12Txz1D3ynfdvs5wYsT~NtlHBUTrH-bau7WQgfXSQlowRrNDbKXJu~EDWiHAvzpQ__"
-                         alt="Trending News"
-                         class="rounded-md w-32 h-24 object-cover">
-                    <div>
-                        <span class="text-gray-400">Business</span>
-                        <p class="mt-2">NFT's on the rise as U.S adopts the crypto market this week.</p>
-                    </div>
-                </div>
-    </div></div></div>
-    <div class="bg-white text-black p-2">
-        <div align="center">
-            <h3 class="mt-5">Subscribe to our Newsletter</h3>
-            <p class="mt-3">Never miss an update, subscribe to our newsletter and have everything delievered to you.</p>
-            <input type="email" placeholder="Your email address" class="bg-gray-300 w-1/2 text-center p-3 rounded-lg text-black"><br>
-            <button class="mt-5 bg-yellow-500 w-1/4 p-3 rounded-sm text-white">Subscribe now</button>
-        </div>
+  </div>
+
+  <!-- Trending News Section -->
+  <div class="bg-white p-5 text-black">
+    <div class="flex items-center">
+      <h2 id="trend" class="text-xl">TRENDING NEWS</h2>
+      <hr class="ml-4 flex-grow border-t-2 border-gray-500" />
     </div>
-    <div class="bg-black text-white mt-5">
-        <footer class="flex space-x-10 justify-center items-center p-3">
-            <img src="https://c.animaapp.com/m91v0esbaSkbyi/img/vector.png" alt="Telegram">
-            <img src="https://c.animaapp.com/m91v0esbaSkbyi/img/instagram-svgrepo-com-1.png" alt="Instagram">
-            <img src="https://c.animaapp.com/m91v0esbaSkbyi/img/facebook-svgrepo-com-1.png" alt="facebook">
-            <img src="https://c.animaapp.com/m91v0esbaSkbyi/img/twitter-svgrepo-com-1.png" alt="twitter">
-        </footer>
-        <div class="flex bg-yellow-500 justify-center items-center p-2 space-x-10">
-            <div class="flex space-x-2">
-            <img class="image" src="https://c.animaapp.com/m91v0esbaSkbyi/img/image-4-1.png" />
-            <div class="relative top-1">Bitcoin (BTC) $17,816</div></div>
-            <div class="flex space-x-2">
-            <img class="image" src="https://c.animaapp.com/m91v0esbaSkbyi/img/image-2.png" />
-            <div class="relative top-1">Ripple (XRP) $0.356796</div></div>
-            <div class="flex space-x-2">
-            <img class="image" src="https://c.animaapp.com/m91v0esbaSkbyi/img/image-3.png" />
-            <div class="relative top-1">Cardano (ADA) 0.345534</div></div>
-            <div class="flex space-x-2">
-                <img class="image" src="https://c.animaapp.com/m91v0esbaSkbyi/img/image-4-1.png" />
-                <div class="relative top-1">Bitcoin (BTC) $17,816</div></div>
+    <div class="flex flex-wrap justify-center space-y-4 md:space-x-10 md:space-y-0">
+      <!-- Sample News Article -->
+      <div class="w-full md:w-2/3 p-2 border-yellow-100 border-2 rounded-sm mt-5 flex gap-4">
+        <img src="https://s3-alpha-sig.figma.com/img/54ea/5318/bf76b123804fd0b8b0b7160de694a9c4?Expires=1744588800&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=mMoTCvSJaulwg2z1SZfKxjOarY-UALFVK6QUWkE9zX-aWtJsT9ksCGShaEGjyddry1YtUlnAY7U35flLt9Ns5Wm6NfwvP2jILeEDBKRFpoS1eA-7M2JNynI91PetTahy2kJoUBjembEuYSTeyElZAWFexkGd8kemaLdg~s3r7X3tvTcaAb7e95N5-6zB~A87o00ThZKLnGFlX8Ea8Ta7F0rx2S8FYx~mFj79RwtX4EcvT0FAIMZWqYdDzgzWnAa99Einr97Yc4NBzopJawDRObfYlZJ0Qf-SN71huKEtzWL1mhrcX7Ya~6~O3I9YcgVE96jZEv1ImoGm~GANvOxxKA__" alt="Trending News" class="rounded-sm w-32 h-24 object-cover" />
+        <div>
+          <span class="text-gray-400">Business</span>
+          <p>NFT's on the rise as U.S adopts the crypto market this week.</p>
         </div>
-        <div class="flex justify-center text-black items-center p-3">
-            
+      </div>
+      <!-- You can add more articles here -->
     </div>
+  </div>
+
+  <!-- Featured News Section -->
+  <div class="bg-black text-white p-5">
+    <div class="flex items-center">
+      <h2>FEATURED NEWS</h2>
+      <hr class="ml-4 flex-grow border-t-2 border-gray-500" />
+    </div>
+    <div class="flex flex-wrap justify-center space-y-4 md:space-x-10 md:space-y-0">
+      <div class="w-full md:w-2/3 p-2">
+        <div class="bg-light text-black border-2 rounded-sm p-4 mt-5 flex gap-4">
+          <img src="https://s3-alpha-sig.figma.com/img/d813/46c5/5f9d865d15871cb6c4028fa3cf991d7f?Expires=1744588800&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=kwExAZcET79NxkNJ8z946DsqQkAAjrhSZ3Fy-3tOFrVhfFSSD6kDtJnanB7CFvF4Gd0Cx7mWmM3lyaSBWYeZ98xQNdrxl9etYD--mtBUwTnQqQaF8AMqrYlncVems2DtnMuud6Fvs3uIGhzgZIJHvyY48cKfjT5l-MoNjln4SbpQrfDgDiZJ6UKANAC2wBpM6fDBmFeHH3BZY92TTWGJ55eRUB-Oj5yIa2GbDQFmBr1L7y1B4CbPRdthzeuHS5ZbgMVXFEj9qYBX6MZtzG4cBG52fTcw9PXDgfJDihsvVPMYYovvApk-DINBDbS0EXjODTj0KpZe8DqWqZdlii~VoQ__" alt="Trending News" class="rounded-md w-32 h-24 object-cover" />
+          <div>
+            <span class="text-gray-400">Business</span>
+            <p class="mt-2">NFT's on the rise as U.S adopts the crypto market this week.</p>
+          </div>
+        </div>
+        <!-- Add more featured news blocks as needed -->
+      </div>
+      <div class="w-full md:w-2/3 p-2">
+        <div class="bg-light text-black border-2 rounded-sm p-4 mt-5 flex gap-4">
+          <img src="https://s3-alpha-sig.figma.com/img/d700/90f1/f2ebb3e307e205be23d2bb25fd5173af?Expires=1744588800&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=bXNQz3pfmMqH4SBJTYP01SykdNYwxzNTSyWslPbefQN3TspCuUxeAV2AgkDsSy6n0D8Xkmd82LiAS3qnM-b5HmhoxA9~YXBo212TP85XJz~EIRSBhUG1yM4pKQ5~gnxChIsNYADiGWAimTUDNiBQN8TthHPQm5u87tXSjVoMbFI5ThR5MlaLZugE6-4pb7KFCscZvfFvuoX9iNucf1nSpGnJZY-jRwmJfB6JXpspngz55k4M~Pxa7pvNUerPJzR5sJrYZ3gYuMXLoLv26tS6IE12Txz1D3ynfdvs5wYsT~NtlHBUTrH-bau7WQgfXSQlowRrNDbKXJu~EDWiHAvzpQ__" alt="Trending News" class="rounded-md w-32 h-24 object-cover" />
+          <div>
+            <span class="text-gray-400">Business</span>
+            <p class="mt-2">NFT's on the rise as U.S adopts the crypto market this week.</p>
+          </div>
+        </div>
+        <!-- More featured news blocks as needed -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Subscribe Section -->
+  <div class="bg-white text-black p-2">
+    <div class="text-center">
+      <h3 class="mt-5">Subscribe to our Newsletter</h3>
+      <p class="mt-3">Never miss an update, subscribe to our newsletter and have everything delivered to you.</p>
+      <input type="email" placeholder="Your email address" class="bg-gray-300 w-1/2 text-center p-3 rounded-lg text-black" /><br>
+      <button class="mt-5 bg-yellow-500 w-1/4 p-3 rounded-sm text-white" id="subscribe_btn">Subscribe now</button>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="bg-black text-white mt-5">
+    <footer class="flex flex-col md:flex-row justify-center items-center p-3 space-y-3 md:space-y-0 md:space-x-10">
+      <img src="https://c.animaapp.com/m91v0esbaSkbyi/img/vector.png" alt="Telegram" />
+      <img src="https://c.animaapp.com/m91v0esbaSkbyi/img/instagram-svgrepo-com-1.png" alt="Instagram" />
+      <img src="https://c.animaapp.com/m91v0esbaSkbyi/img/facebook-svgrepo-com-1.png" alt="Facebook" />
+      <img src="https://c.animaapp.com/m91v0esbaSkbyi/img/twitter-svgrepo-com-1.png" alt="Twitter" />
+    </footer>
+    <div class="flex bg-yellow-500 justify-center items-center p-2 space-x-10">
+      <div class="flex space-x-2">
+        <img class="image" src="https://c.animaapp.com/m91v0esbaSkbyi/img/image-4-1.png" />
+        <div class="relative top-1">Bitcoin (BTC) $17,816</div>
+      </div>
+      <div class="flex space-x-2">
+        <img class="image" src="https://c.animaapp.com/m91v0esbaSkbyi/img/image-2.png" />
+        <div class="relative top-1">Ripple (XRP) $0.356796</div>
+      </div>
+      <div class="flex space-x-2">
+        <img class="image" src="https://c.animaapp.com/m91v0esbaSkbyi/img/image-3.png" />
+        <div class="relative top-1">Cardano (ADA) 0.345534</div>
+      </div>
+      <div class="flex space-x-2">
+        <img class="image" src="https://c.animaapp.com/m91v0esbaSkbyi/img/image-4-1.png" />
+        <div class="relative top-1">Bitcoin (BTC) $17,816</div>
+      </div>
+    </div>
+  </div>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script src="script.js"></script>
 </body>
+</html>
